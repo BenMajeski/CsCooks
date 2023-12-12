@@ -1,0 +1,143 @@
+﻿@model Recipe
+@{
+    ViewData["Title"] = "Add Recipe";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4caf50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #45a049;
+            }
+
+        div {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        body {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 600px;
+            border-radius: 5px;
+            width: 600px;
+            padding: 20px;
+        }
+
+        .wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e4e1e1;
+        }
+
+        .add {
+            text-decoration: none;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #45a049;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flex {
+            display: flex;
+            gap: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .delete {
+            text-decoration: none;
+            display: inline-block;
+            background: #f44336;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            width: 30px;
+            height: 30px;
+            color: #fff;
+            margin-left: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 5px 10px;
+            background: #ddd;
+            border: none;
+            width: 50%;
+            border-radius: 5px;
+        }
+
+            input:focus {
+                outline: 1px solid #efefef;
+            }
+    </style>
+</head>
+<body>
+    <div>
+        <form asp-controller="Home" asp-action="SubmitRecipe" method="post">
+            <h1>Digi-Cooks Recipe Website</h1>
+
+            <label asp-for="recipeName">Recipe Name</label>
+            <input asp-for="recipeName" type="text" placeholder="Your recipe name.." required />
+
+            <label asp-for="authorName">Author Name</label>
+            <input asp-for="authorName" type="text" placeholder="Your first name.." required />
+
+            <label asp-for="ingredients">Ingredients</label>
+            <input asp-for="ingredients" type="text" placeholder="Ingredient 1; Ingredient 2; ..." required />
+
+            <label asp-for="directions">Directions</label>
+            <input asp-for="directions" type="text" placeholder="Step 1; Step 2; ..." required />
+
+            <input type="submit" value="Submit Recipe" />
+        </form>
+    </div>
+    <div>
+        <form asp-controller="Home" asp-action="SeeRecipe" method="get">
+            <button type="submit">See All Recipes</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿@model List<CsKitchen.Models.Recipe>
+@{
+    ViewData["Title"] = "All Recipes";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <h1>All Recipes</h1>
+    <ul>
+        @foreach (var recipe in Model)
+        {
+            <li>
+                @recipe.recipeName by @recipe.authorName
+            </li>
+        }
+    </ul>
+</body>
+</html>
+
